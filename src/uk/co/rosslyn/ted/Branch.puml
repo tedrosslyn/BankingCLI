@@ -4,10 +4,10 @@
 class Branch {
     +branchName: String
     +customers: ArrayList<Customer>
-    +getName()
-    +newCustomer()
-    +addTransaction()
-    +findCustomer()
+    +String getBranchName()
+    +boolean newCustomer(String customerName, double initAmount)
+    +boolean addTransaction(String customerName, double amount)
+    +Customer findCustomer(String customerName)
     }
 
 @enduml

@@ -73,12 +73,5 @@ public class Bank {
             return true;
         } else return false;
     }
-    public ArrayList<Branch> getBranches() {
-        return branches;
-    }
-
-    public void setBranches(ArrayList<Branch> branches) {
-        this.branches = branches;
-    }
 }//close class
 

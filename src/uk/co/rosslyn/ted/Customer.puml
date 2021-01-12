@@ -3,9 +3,9 @@
 class Customer {
     +customerName: String
     +custTrans: ArrayList<Double>
-    +void addTransaction(amount)
+    +void addTransaction(double amount)
     +String getCustomerName()
-    +getCustomerTransaction(ArrayList<Double>)
+    +ArrayList<Double> getCustTrans()
 
 }
 

@@ -8,8 +8,8 @@ class Bank {
     +boolean addCustomerTransaction(String branchName, String customerName, double amount)
     +Branch findBranch(String branchName)
     +boolean listCustomers(String branchName, boolean showTransactions)
-    +ArrayList<Branch> getBranches()
-    +void setBranches(ArrayList<Branch> branches)
+
+
 }
 
 @enduml
