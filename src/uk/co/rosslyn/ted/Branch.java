@@ -10,12 +10,14 @@ public class Branch {
     public Branch(String name) {
         this.branchName = name;
         //initialise the AL in the constructor - create empty AL
-        this.customers = new ArrayList<Customer>();
+        this.customers = new ArrayList<>();
     }
 
-    public String getName() {
+    public String getBranchName() {
         return branchName;
     }
+
+    public ArrayList<Customer> getCustomers() { return customers; }
 
     public boolean newCustomer(String customerName, double initAmount) {
         if(findCustomer(customerName) == null) {
