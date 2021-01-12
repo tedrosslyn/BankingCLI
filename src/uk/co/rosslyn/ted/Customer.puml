@@ -1,0 +1,12 @@
+@startuml
+
+class Customer {
+    +customerName: String
+    +custTrans: ArrayList<Double>
+    +void addTransaction(amount)
+    +String getCustomerName()
+    +getCustomerTransaction(ArrayList<Double>)
+
+}
+
+@enduml

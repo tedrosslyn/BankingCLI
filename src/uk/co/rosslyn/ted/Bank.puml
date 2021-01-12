@@ -1,0 +1,11 @@
+@startuml
+
+class Bank {
+    +branches: ArrayList<Branches>
+    +void addBranch()
+    +void addCustomer()
+    +getBranches()
+    +setBranch()
+}
+
+@enduml
