@@ -1,8 +1,8 @@
 @startuml
 
 class Customer {
-    +customerName: String
-    +custTrans: ArrayList<Double>
+    -customerName: String
+    -custTrans: ArrayList<Double>
     +void addTransaction(double amount)
     +String getCustomerName()
     +ArrayList<Double> getCustTrans()

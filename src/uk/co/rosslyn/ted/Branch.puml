@@ -2,8 +2,8 @@
 
 
 class Branch {
-    +branchName: String
-    +customers: ArrayList<Customer>
+    -branchName: String
+    -customers: ArrayList<Customer>
     +String getBranchName()
     +boolean newCustomer(String customerName, double initAmount)
     +boolean addTransaction(String customerName, double amount)
