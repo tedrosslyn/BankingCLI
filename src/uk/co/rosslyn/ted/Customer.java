@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Customer {
 
     private String customerName;
-    private ArrayList<> custTrans;
+    private ArrayList<Double> custTrans;
 
     public Customer(String customerName, double initTrans) {
         this.customerName = customerName;
