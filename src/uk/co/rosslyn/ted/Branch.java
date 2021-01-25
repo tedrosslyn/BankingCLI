@@ -17,10 +17,17 @@ public class Branch {
         return branchName;
     }
 
-    public ArrayList<Customer> getCustomers() { return customers; }
+    @Override
+    public String toString() {
+        return this.branchName;
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
 
     public boolean newCustomer(String customerName, double initAmount) {
-        if(findCustomer(customerName) == null) {
+        if (findCustomer(customerName) == null) {
             this.customers.add(new Customer(customerName, initAmount));
             return true;
         }
@@ -29,14 +36,14 @@ public class Branch {
 
     public boolean addTransaction(String customerName, double amount) {
         Customer existingCustomer = findCustomer(customerName);
-        if(existingCustomer != null) {
+        if (existingCustomer != null) {
             existingCustomer.addTransaction(amount);
             return true;
         }
         return false;
     }
 
-    private Customer findCustomer(String customerName) {
+    public Customer findCustomer(String customerName) {
         //for(int i = 0; i < this.customers.size(); i++) {
         for (Customer confirmedCustomer : this.customers) {
             if (confirmedCustomer.getCustomerName().equals(customerName)) {
@@ -46,6 +53,4 @@ public class Branch {
         return null;
     }
 } //close class
-
-
 

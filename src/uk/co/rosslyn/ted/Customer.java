@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Customer {
 
     private String customerName;
-    private ArrayList<Double> custTrans = new ArrayList<Double>();
+    private ArrayList<Double> custTrans;
 
     public Customer(String customerName, double initTrans) {
         this.customerName = customerName;
-        this.custTrans = new ArrayList<Double>();
+        this.custTrans = new ArrayList<>();
         addTransaction(initTrans);
     }
 
@@ -25,3 +25,5 @@ public class Customer {
         return custTrans;
     }
 }//close class
+
+
