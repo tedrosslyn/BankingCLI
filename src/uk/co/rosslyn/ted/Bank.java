@@ -54,14 +54,6 @@ public class Bank {
         return null;
     }
 
-    //another listCustomers for searching
-    /*public String listCustomerNames(String myBranchName) {
-        for(int i =0; i < branches.size(); i++) {
-            String custName = getCustomerName();
-            System.out.println("Customer: " + custName);
-    }*/
-
-
     public boolean listCustomers(String branchName, boolean showTransactions) {  //true to see customers and transactions
         //test if branch is already on file
         Branch branch = findBranch(branchName);

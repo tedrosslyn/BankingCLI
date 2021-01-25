@@ -79,7 +79,7 @@ public class Main {
                     String branchName3 = scanner.nextLine();
                     System.out.println("Please enter the customer name: ");
                     String customerName3 = scanner.nextLine();
-
+                    dunfermline.findCustomer(customerName3) ;
                     break;
                 case 4:
                     //add new Customer
@@ -123,18 +123,6 @@ public class Main {
         System.out.println("\t 6 - To quit the application.");
     }
 
-    public static void searchCustomer(String customerName) {
-       // System.out.print("Please enter customer name: ");
-        //String customerName3 = scanner.nextLine();
-
-
-
-       if (customerName != null) {
-            System.out.println("Found " + customerName);
-        } else {
-            System.out.println(customerName + " does not have an account at this branch");
-        }
-    }
 }
 
 
