@@ -92,7 +92,6 @@ public class Main {
         boolean quit = false;
         int choice;
         //for submenu
-
         printInstructions();
         while (!quit) {
             //scanner.nextLine();
@@ -109,8 +108,6 @@ public class Main {
                     System.out.print("Please enter the name of the new Branch: ");
                     scanner.nextLine();
                     String branchName = scanner.nextLine();
-
-                    //System.out.println("A new Branch has been added in " + branchName);
                     HSBC.addBranch(branchName);
                     System.out.println("Existing Branches are now " + HSBC.getBranches());
                     break;
@@ -139,7 +136,6 @@ public class Main {
                     String customerName4 = scanner.nextLine();
                     System.out.println("Please enter the amount: ");
                     double amount4 = scanner.nextDouble();
-
                     HSBC.addCustomer(branchName4, customerName4, amount4);
                     break;
                 case 5:
@@ -151,7 +147,7 @@ public class Main {
                     while (!goBack) {
                         System.out.println("Enter your submenu choice: ");
                         menuChoice = scanner.nextInt();
-                       // scanner.nextLine();
+                        // scanner.nextLine();
                         switch (menuChoice) {
                             case 0:
                                 printCustomerSubmenu();
@@ -165,7 +161,7 @@ public class Main {
                                 String customerName1 = scanner.nextLine();
 
                                 //scanner.nextLine();
-                               // scanner.nextLine();
+                                // scanner.nextLine();
                                 HSBC.listCustomerBalance(branchName1, customerName1);
                                 // HSBC.listCustomerBalance("Dunfermline", "Grant");
                                 //go back to case 5 in main menu:
@@ -194,17 +190,11 @@ public class Main {
                             case 4:
                                 //back to main menu
                                 goBack = true; //exit the inner while loop
-
-
                                 break;
                         }//inner switch
                     }//inner while
-
-                   // break;
+                    // break;
                 case 6:
-                   // printInstructions();
-                    //System.out.println("press '1' to continue");
-                   // choice = scanner.nextInt();
                     if (choice == 6) {
                         quit = true;
                         break;
@@ -234,25 +224,5 @@ public class Main {
         System.out.println("\t\t 2 - To make a deposit");
         System.out.println("\t\t 3 - To make a withdrawal");
         System.out.println("\t\t 4 - To return to the main menu");
-
     }
-
 }
-
-//search for a customer STILL TO DO
-                   /* System.out.println("Please choose a branch: " + HSBC.getBranches());
-                            String branchName3 = scanner.nextLine();
-                            System.out.println("Please enter the customer name: ");
-                            String customerName3 = scanner.nextLine();
-                            dunfermline.findCustomer(customerName3) ;
-
-      //add a Transaction.  Validation to be added!
-                    System.out.println("Please enter the branch name: ");
-                    String branchName5 = scanner.nextLine();
-                    System.out.println("Please enter the customer name: ");
-                    String customerName5 = scanner.nextLine();
-                    System.out.println("Please enter the amount: ");
-                    double amount5 = scanner.nextDouble();
-
-                    HSBC.addCustomerTransaction(branchName5, customerName5, amount5);
-                    break;                       break;*/
