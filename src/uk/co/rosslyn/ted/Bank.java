@@ -24,6 +24,7 @@ public class Bank {
             this.branches.add(new Branch(branchName));
             return true;
         }
+        System.out.println("This Branch already exists");
         return false;
     }
 
@@ -83,21 +84,35 @@ public class Bank {
         //test if branch is already on file
         Branch branch = findBranch(branchName);
         if (branch != null) { //can process
-            System.out.println("Customers balances for " + branch.getBranchName() + " branch:"); //could have just used branchName parameter
+            System.out.println("Customers' balances for " + branch.getBranchName() + " branch:"); //could have just used branchName parameter
             //get a list of customer records:
             ArrayList<Customer> branchCustomers = branch.getCustomers();
             //print them to screen - use enhanced for loop for (type variableName : arrayName)
             for (Customer allCustomers : branchCustomers) {
                 double customersBalance = allCustomers.getBalance();
-                System.out.println("Customer: " + allCustomers.getCustomerName() + " Balance: " + customersBalance);
-                //System.out.println(allCustomers.getCustTrans());
-                //}
-
+                System.out.println(allCustomers.getCustomerName() + "'s Balance: " + customersBalance);
             }
             return true;
         } else return false;
     }
 
+    public boolean listCustomerBalance(String branchName, String customerName) {
+        //test if branch is already on file
+        Branch branch = findBranch(branchName);
+        if (branch != null) { //can process
+            System.out.println("Balance for " + customerName + " at " + branch.getBranchName() + " branch:");
+            ArrayList<Customer> branchCustomers = branch.getCustomers();
+            //print them to screen - use enhanced for loop for (type variableName : arrayName)
+            for (Customer allCustomers : branchCustomers) {
+                if (allCustomers.getCustomerName().equals(customerName) ) {
+                    //find the customerName you want the balance for
+                    double customerBalance = allCustomers.getBalance();
+                    System.out.println(allCustomers.getCustomerName() + "'s Balance: " + customerBalance);
+                }
+            }
+            return true;
+        } else return false;
+    }
     public ArrayList<Branch> getBranches() {
         return branches;
     }

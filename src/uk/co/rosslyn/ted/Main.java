@@ -83,15 +83,22 @@ public class Main {
         //test adding customer who already exists
         if (!HSBC.addCustomer("Dunfermline", "Grant", 34.99)) {
             System.out.println("Customer already exists!");
+            System.out.println();
+            //get a customer's balance
+            HSBC.listCustomerBalance("Dunfermline", "Grant");
+            System.out.println();
         }
         //menu to access information
         boolean quit = false;
         int choice;
+        //for submenu
+
         printInstructions();
         while (!quit) {
-            System.out.println("Enter your choice: ");
+            //scanner.nextLine();
+            System.out.println("Enter your main menu choice: ");
             choice = scanner.nextInt();
-            scanner.nextLine();
+
             switch (choice) {
                 case 0:
                     printInstructions();
@@ -100,14 +107,17 @@ public class Main {
                     //add a Branch
                     System.out.println("Existing Branches are " + HSBC.getBranches());
                     System.out.print("Please enter the name of the new Branch: ");
-                    String newBranchName1 = scanner.nextLine();
-                    System.out.println("A new Branch has been added in " + newBranchName1);
-                    HSBC.addBranch(newBranchName1);
+                    scanner.nextLine();
+                    String branchName = scanner.nextLine();
+
+                    //System.out.println("A new Branch has been added in " + branchName);
+                    HSBC.addBranch(branchName);
                     System.out.println("Existing Branches are now " + HSBC.getBranches());
                     break;
                 case 2:
                     //list customers and transactions, if needed
                     System.out.println("Please choose a branch: " + HSBC.getBranches());
+                    scanner.nextLine();
                     String branchName2 = scanner.nextLine();
                     System.out.println("Do you wish to see all the transactions too? Enter 'yes' or 'no'");
                     String response2 = scanner.nextLine();
@@ -116,12 +126,14 @@ public class Main {
                 case 3:
                     //Get customer balances
                     System.out.println("Please choose a branch: " + HSBC.getBranches());
+                    scanner.nextLine();
                     String branchName3 = scanner.nextLine();
                     HSBC.listCustomersBalances(branchName3);
                     break;
                 case 4:
                     //add new Customer
                     System.out.println("Please choose a branch: " + HSBC.getBranches());
+                    scanner.nextLine();
                     String branchName4 = scanner.nextLine();
                     System.out.println("Please enter the customer name: ");
                     String customerName4 = scanner.nextLine();
@@ -131,19 +143,75 @@ public class Main {
                     HSBC.addCustomer(branchName4, customerName4, amount4);
                     break;
                 case 5:
-                    //add a Transaction.  Validation to be added!
-                    System.out.println("Please enter the branch name: ");
-                    String branchName5 = scanner.nextLine();
-                    System.out.println("Please enter the customer name: ");
-                    String customerName5 = scanner.nextLine();
-                    System.out.println("Please enter the amount: ");
-                    double amount5 = scanner.nextDouble();
+                    //Customer balance, deposit/ withdrawal
+                    printCustomerSubmenu();
+                    boolean goBack = false;
+                    int menuChoice;
+                    // if (!goBack) {
+                    while (!goBack) {
+                        System.out.println("Enter your submenu choice: ");
+                        menuChoice = scanner.nextInt();
+                       // scanner.nextLine();
+                        switch (menuChoice) {
+                            case 0:
+                                printCustomerSubmenu();
+                                break;
+                            case 1:
+                                //balance enquiry
+                                System.out.println("Please enter the branch name: ");
+                                scanner.nextLine();
+                                String branchName1 = scanner.nextLine();
+                                System.out.println("Please enter the customer name: ");
+                                String customerName1 = scanner.nextLine();
 
-                    HSBC.addCustomerTransaction(branchName5, customerName5, amount5);
-                    break;
+                                //scanner.nextLine();
+                               // scanner.nextLine();
+                                HSBC.listCustomerBalance(branchName1, customerName1);
+                                // HSBC.listCustomerBalance("Dunfermline", "Grant");
+                                //go back to case 5 in main menu:
+                                //menuChoice = 0;
+                                break;
+                            case 2:
+                                //make a deposit
+                                System.out.println("Please enter the branch name: ");
+                                String branchName52 = scanner.nextLine();
+                                System.out.println("Please enter the customer name: ");
+                                String customerName52 = scanner.nextLine();
+                                System.out.println("Please enter the amount: ");
+                                double amount52 = scanner.nextDouble();
+                                HSBC.addCustomerTransaction(branchName52, customerName52, amount52);
+                                break;
+                            case 3:
+                                //make a withdrawal
+                                System.out.println("Please enter the branch name: ");
+                                String branchName53 = scanner.nextLine();
+                                System.out.println("Please enter the customer name: ");
+                                String customerName53 = scanner.nextLine();
+                                System.out.println("Please enter the amount: ");
+                                double amount53 = scanner.nextDouble();
+                                HSBC.addCustomerTransaction(branchName53, customerName53, -amount53);
+                                break;
+                            case 4:
+                                //back to main menu
+                                goBack = true; //exit the inner while loop
+
+
+                                break;
+                        }//inner switch
+                    }//inner while
+
+                   // break;
                 case 6:
-                    quit = true;
-                    break;
+                   // printInstructions();
+                    //System.out.println("press '1' to continue");
+                   // choice = scanner.nextInt();
+                    if (choice == 6) {
+                        quit = true;
+                        break;
+                    } else {
+                        quit = false;
+                        break;
+                    }
             }
         }
     }
@@ -159,6 +227,16 @@ public class Main {
         System.out.println("\t 6 - To quit the application.");
     }
 
+    private static void printCustomerSubmenu() {
+        System.out.println("\t\t\nPress ");   // new line
+        System.out.println("\t\t 0 - To print choice of options.");    // tab
+        System.out.println("\t\t 1 - For a balance enquiry");
+        System.out.println("\t\t 2 - To make a deposit");
+        System.out.println("\t\t 3 - To make a withdrawal");
+        System.out.println("\t\t 4 - To return to the main menu");
+
+    }
+
 }
 
 //search for a customer STILL TO DO
@@ -167,4 +245,14 @@ public class Main {
                             System.out.println("Please enter the customer name: ");
                             String customerName3 = scanner.nextLine();
                             dunfermline.findCustomer(customerName3) ;
-                            break;*/
+
+      //add a Transaction.  Validation to be added!
+                    System.out.println("Please enter the branch name: ");
+                    String branchName5 = scanner.nextLine();
+                    System.out.println("Please enter the customer name: ");
+                    String customerName5 = scanner.nextLine();
+                    System.out.println("Please enter the amount: ");
+                    double amount5 = scanner.nextDouble();
+
+                    HSBC.addCustomerTransaction(branchName5, customerName5, amount5);
+                    break;                       break;*/
