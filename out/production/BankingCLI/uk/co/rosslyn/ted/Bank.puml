@@ -1,0 +1,16 @@
+@startuml
+
+class Bank {
+    -branchName: String
+    -branches: ArrayList<Branches>
+    +boolean addBranch(String branchName)
+    +boolean addCustomer(String branchName, String customerName, double initTrans)
+    +boolean addCustomerTransaction(String branchName, String customerName, double amount)
+    +Branch findBranch(String branchName)
+    +boolean listCustomers(String branchName, boolean showTransactions)
+
+
+
+}
+
+@enduml
