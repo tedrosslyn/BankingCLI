@@ -1,49 +1,89 @@
 package uk.co.rosslyn.ted;
 
-import com.sun.source.tree.NewArrayTree;
-
-import javax.swing.*;
-import javax.swing.plaf.basic.BasicScrollPaneUI;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    private static Scanner scanner = new Scanner(System.in);
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        //create a Bank instance
+        //create a bank instance
         Bank HSBC = new Bank("HSBC");
         HSBC.getBankName();
         //create branch instance
         Branch dunfermline = new Branch("Dunfermline");
         Branch edinburgh = new Branch("Edinburgh");
 
+        //create a branch instance
         HSBC.addBranch("Dunfermline");
         HSBC.addBranch("Edinburgh");
         //add customers
         HSBC.addCustomer("Dunfermline", "Grant", 2134.56);
+        System.out.println();
         HSBC.addCustomer("Edinburgh", "Stewart", 1212.99);
+        System.out.println();
         HSBC.addCustomer("Dunfermline", "Rory", 3423.01);
+        System.out.println();
         HSBC.addCustomer("Dunfermline", "Peter", 654.78);
+        System.out.println();
+
 
         //add more transactions
         HSBC.addCustomerTransaction("Edinburgh", "Stewart", -123.67);
+        System.out.println();
         HSBC.addCustomerTransaction("Edinburgh", "Stewart", -10.99);
+        System.out.println();
         HSBC.addCustomerTransaction("Edinburgh", "Stewart", -5.56);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Grant", -15.56);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Grant", -29.99);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Grant", -55.54);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Grant", 17.68);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Rory", -27.68);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Rory", -222.00);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Rory", -3.45);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Peter", -234.00);
+        System.out.println();
         HSBC.addCustomerTransaction("Dunfermline", "Peter", 345.67);
+        System.out.println();
 
+        HSBC.listCustomers("Dunfermline",false);
+        System.out.println();
+        HSBC.listCustomers("Dunfermline",true);
+        System.out.println();
+        HSBC.listCustomers("Edinburgh",false);
+        System.out.println();
+        HSBC.listCustomers("Edinburgh",true);
+        System.out.println();
+        HSBC.listCustomersBalances("Dunfermline");
+        System.out.println();
+        HSBC.listCustomersBalances("Edinburgh");
+        System.out.println();
 
-
+        //test adding when branch doesn't' exist
+        if(!HSBC.addCustomer("Glasgow", "David", 34.99)){
+            System.out.println("Glasgow branch doesn't exist!");
+        }
+        //test adding branch that already exists
+        if(!HSBC.addBranch("Dunfermline")) {
+            System.out.println("Branch already exists");
+        }
+        //add transaction to customer who doesn't exist
+        if(!HSBC.addCustomerTransaction("Edinburgh", "Jimmy", 123.45 )) {
+            System.out.println("Customer does not exist");
+        }
+        //test adding customer who already exists
+        if(!HSBC.addCustomer("Dunfermline", "Grant", 34.99)){
+            System.out.println("Customer already exists!");
+        }
         //menu to access information
         boolean quit = false;
         int choice;
@@ -124,23 +164,4 @@ public class Main {
     }
 
 }
-
-
-       /* //test adding when branch doesn't' exist
-        if(!HSBC.addCustomer("Glasgow", "David", 34.99)){
-            System.out.println("Glasgow branch doesn't exist!");
-        }
-        //test adding branch that already exists
-        if(!HSBC.addBranch("Dunfermline")) {
-            System.out.println("Branch already exists");
-        }
-        //add transaction to customer who doesn't exist
-        if(!HSBC.addCustomerTransaction("Edinburgh", "Jimmy", 123.45 )) {
-            System.out.println("Customer does not exist");
-        }
-        //test adding customer who already exists
-        if(!HSBC.addCustomer("Dunfermline", "Grant", 34.99)){
-            System.out.println("Customer already exists!");
-        }*/
-
 
