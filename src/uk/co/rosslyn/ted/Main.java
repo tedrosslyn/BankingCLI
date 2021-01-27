@@ -55,13 +55,13 @@ public class Main {
         HSBC.addCustomerTransaction("Dunfermline", "Peter", 345.67);
         System.out.println();
 
-        HSBC.listCustomers("Dunfermline",false);
+        HSBC.listCustomers("Dunfermline", false);
         System.out.println();
-        HSBC.listCustomers("Dunfermline",true);
+        HSBC.listCustomers("Dunfermline", true);
         System.out.println();
-        HSBC.listCustomers("Edinburgh",false);
+        HSBC.listCustomers("Edinburgh", false);
         System.out.println();
-        HSBC.listCustomers("Edinburgh",true);
+        HSBC.listCustomers("Edinburgh", true);
         System.out.println();
         HSBC.listCustomersBalances("Dunfermline");
         System.out.println();
@@ -69,19 +69,19 @@ public class Main {
         System.out.println();
 
         //test adding when branch doesn't' exist
-        if(!HSBC.addCustomer("Glasgow", "David", 34.99)){
+        if (!HSBC.addCustomer("Glasgow", "David", 34.99)) {
             System.out.println("Glasgow branch doesn't exist!");
         }
         //test adding branch that already exists
-        if(!HSBC.addBranch("Dunfermline")) {
+        if (!HSBC.addBranch("Dunfermline")) {
             System.out.println("Branch already exists");
         }
         //add transaction to customer who doesn't exist
-        if(!HSBC.addCustomerTransaction("Edinburgh", "Jimmy", 123.45 )) {
+        if (!HSBC.addCustomerTransaction("Edinburgh", "Jimmy", 123.45)) {
             System.out.println("Customer does not exist");
         }
         //test adding customer who already exists
-        if(!HSBC.addCustomer("Dunfermline", "Grant", 34.99)){
+        if (!HSBC.addCustomer("Dunfermline", "Grant", 34.99)) {
             System.out.println("Customer already exists!");
         }
         //menu to access information
@@ -114,12 +114,10 @@ public class Main {
                     HSBC.listCustomers(branchName2, response2.equals("yes"));
                     break;
                 case 3:
-                    //search for a customer STILL TO DO
+                    //Get customer balances
                     System.out.println("Please choose a branch: " + HSBC.getBranches());
                     String branchName3 = scanner.nextLine();
-                    System.out.println("Please enter the customer name: ");
-                    String customerName3 = scanner.nextLine();
-                    dunfermline.findCustomer(customerName3) ;
+                    HSBC.listCustomersBalances(branchName3);
                     break;
                 case 4:
                     //add new Customer
@@ -131,7 +129,6 @@ public class Main {
                     double amount4 = scanner.nextDouble();
 
                     HSBC.addCustomer(branchName4, customerName4, amount4);
-                    System.out.println("New Customer " + customerName4 + " deposited " + amount4 + " in the " + branchName4 + " Branch." );
                     break;
                 case 5:
                     //add a Transaction.  Validation to be added!
@@ -143,7 +140,6 @@ public class Main {
                     double amount5 = scanner.nextDouble();
 
                     HSBC.addCustomerTransaction(branchName5, customerName5, amount5);
-                    System.out.println(amount5 + " deposited in " + customerName5 + "'s account");
                     break;
                 case 6:
                     quit = true;
@@ -157,7 +153,7 @@ public class Main {
         System.out.println("\t 0 - To print choice of options.");    // tab
         System.out.println("\t 1 - To add a Branch");
         System.out.println("\t 2 - To list all Branch customers");
-        System.out.println("\t 3 - To search for a customer");
+        System.out.println("\t 3 - To get customer balances for a branch");
         System.out.println("\t 4 - To add a new Customer");
         System.out.println("\t 5 - To add a customer transaction");
         System.out.println("\t 6 - To quit the application.");
@@ -165,3 +161,10 @@ public class Main {
 
 }
 
+//search for a customer STILL TO DO
+                   /* System.out.println("Please choose a branch: " + HSBC.getBranches());
+                            String branchName3 = scanner.nextLine();
+                            System.out.println("Please enter the customer name: ");
+                            String customerName3 = scanner.nextLine();
+                            dunfermline.findCustomer(customerName3) ;
+                            break;*/
