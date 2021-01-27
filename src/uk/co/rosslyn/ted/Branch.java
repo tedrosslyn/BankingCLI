@@ -17,6 +17,11 @@ public class Branch {
         return branchName;
     }
 
+    @Override
+    public String toString() {
+        return this.branchName;
+    }
+
     public ArrayList<Customer> getCustomers() {
         return customers;
     }
@@ -38,7 +43,7 @@ public class Branch {
         return false;
     }
 
-    private Customer findCustomer(String customerName) {
+    public Customer findCustomer(String customerName) {
         //for(int i = 0; i < this.customers.size(); i++) {
         for (Customer confirmedCustomer : this.customers) {
             if (confirmedCustomer.getCustomerName().equals(customerName)) {
@@ -48,6 +53,4 @@ public class Branch {
         return null;
     }
 } //close class
-
-
 

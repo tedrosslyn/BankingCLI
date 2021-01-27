@@ -4,15 +4,19 @@ import java.util.ArrayList;
 
 public class Bank {
 
-    private String branchName;
+    private String bankName;
     private ArrayList<Branch> branches;
     //private ArrayList<Branch> branches = new ArrayList<>(); //redundant initialiser
 
-    public Bank(String branchName) {
-        this.branchName = branchName;
+    public Bank(String bankName) {
+        this.bankName = bankName;
         //initialise the AL
         this.branches = new ArrayList<>();
-        //this.branches = new ArrayList<Branch>();
+    }
+
+    public String getBankName() {
+        System.out.println(bankName);
+        return bankName;
     }
 
     public boolean addBranch(String branchName) {
@@ -92,6 +96,14 @@ public class Bank {
             }
             return true;
         } else return false;
+    }
+
+    public ArrayList<Branch> getBranches() {
+        return branches;
+    }
+
+    public void setBranches(ArrayList<Branch> branches) {
+        this.branches = branches;
     }
 
 
