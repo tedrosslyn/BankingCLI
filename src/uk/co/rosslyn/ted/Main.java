@@ -170,6 +170,7 @@ public class Main {
                             case 2:
                                 //make a deposit
                                 System.out.println("Please enter the branch name: ");
+                                scanner.nextLine();
                                 String branchName52 = scanner.nextLine();
                                 System.out.println("Please enter the customer name: ");
                                 String customerName52 = scanner.nextLine();
@@ -180,6 +181,7 @@ public class Main {
                             case 3:
                                 //make a withdrawal
                                 System.out.println("Please enter the branch name: ");
+                                scanner.nextLine();
                                 String branchName53 = scanner.nextLine();
                                 System.out.println("Please enter the customer name: ");
                                 String customerName53 = scanner.nextLine();
@@ -215,6 +217,7 @@ public class Main {
         System.out.println("\t 4 - To add a new Customer");
         System.out.println("\t 5 - To add a customer transaction");
         System.out.println("\t 6 - To quit the application.");
+        System.out.println();
     }
 
     private static void printCustomerSubmenu() {
@@ -224,5 +227,6 @@ public class Main {
         System.out.println("\t\t 2 - To make a deposit");
         System.out.println("\t\t 3 - To make a withdrawal");
         System.out.println("\t\t 4 - To return to the main menu");
+        System.out.println();
     }
 }
